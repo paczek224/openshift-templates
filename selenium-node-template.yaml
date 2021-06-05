@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: s-node
+  labels:
+    app: node
+spec:
+  containers:
+  - env:
+    - name: HUB_PORT_4444_TCP_ADDR
+      value: "172.30.94.116"
+    - name: HUB_PORT_4444_TCP_PORT
+      value: "4444" 
+    image: selenium/node-chrome:3.141.59
+    name: selenium-node
+    ports:
+    - containerPort: 5555 
+      protocol: TCP
+parameters:
+  - name: HUB_PORT_4444_TCP_ADDR
+    value: grid
+  - name: HUB_PORT_4444_TCP_PORT
+    value: "4444"

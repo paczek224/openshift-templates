@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grid
+spec:
+  ports:
+    - name: web
+      port: 4444
+      targetPort: 4444
+      protocol: TCP
+    - name: node
+      port: 5555
+      targetPort: 5555
+      protocol: TCP 
+  selector:
+    app: grid
